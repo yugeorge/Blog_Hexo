@@ -25,16 +25,16 @@ test:
         # 配置git全局的用户名和邮件，没有配置不能clone
         - git config --global user.name "yugeorge"
         - git config --global user.email "yugeorge@yeah.net"
-            script:
-                # 清除之前生成的文件
-                - hexo clean
-                # 生成要发布的静态博客文件
-                - hexo g
-                # 根据Hexo配置的发布方式和地址进行发布
-                # 项目_config.yml发布为git方式，且使用了ssh连接，因此才有上面的安装私钥的过程
-                - hexo d
-                # 删除私钥文件夹
-                - rm -rf ~/.ssh/ 
+    script:
+        # 清除之前生成的文件
+        - hexo clean
+        # 生成要发布的静态博客文件
+        - hexo g
+        # 根据Hexo配置的发布方式和地址进行发布
+        # 项目_config.yml发布为git方式，且使用了ssh连接，因此才有上面的安装私钥的过程
+        - hexo d
+        # 删除私钥文件夹
+        - rm -rf ~/.ssh/ 
 
 # 必须有build环节，虽说感觉意义不是特别大
 build:
